@@ -173,4 +173,15 @@ latinTibetan = {
     'Z': 'ཛ', 'z': 'ཛ'
 }
 
-# Functions
+# Class Definition
+
+class LatinTranscriber():
+     Mapper={}
+     def __init__(self, rule:dict):
+          self.Mapper=rule
+     def Transcribe(self, text:str):
+          for i in self.Mapper:
+               text=text.replace(i, str(self.Mapper.get(i)))
+          return text
+     def Detranscribe(self, text:str):
+          pass
