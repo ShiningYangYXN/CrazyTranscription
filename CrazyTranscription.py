@@ -188,7 +188,7 @@ class Transcriber(object):
           return text
      def ReverseTranscribe(self, text:str):
           for i in self.Mapper.values():
-               text=text.replace(i, choice([i for i in self.Mapper.keys() if self.Mapper.get(i,i)==i]))
+               text=text.replace(i, choice([j for j in self.Mapper.keys() if self.Mapper[j]==i]))
           return text
 
 # Define Default Transcribers
