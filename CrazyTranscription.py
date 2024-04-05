@@ -1,3 +1,4 @@
+# Mapping
 latinGreek = {
      'A': 'Α', 'a': 'α', 
      'B': 'Β', 'b': 'β', 
@@ -171,3 +172,5 @@ latinTibetan = {
     'Y': 'ཡ', 'y': 'ཡ',
     'Z': 'ཛ', 'z': 'ཛ'
 }
+
+# Functions
