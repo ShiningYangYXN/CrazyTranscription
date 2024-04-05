@@ -1,3 +1,6 @@
+#Dependencies
+from secrets import choice
+
 # Mapping
 latinGreek = {
      'A': 'Α', 'a': 'α', 
@@ -175,13 +178,77 @@ latinTibetan = {
 
 # Class Definition
 
-class LatinTranscriber():
+class Transcriber(object):
      Mapper={}
-     def __init__(self, rule:dict):
-          self.Mapper=rule
+     def __init__(self, mapper:dict):
+          self.Mapper=mapper
      def Transcribe(self, text:str):
           for i in self.Mapper:
-               text=text.replace(i, str(self.Mapper.get(i)))
+               text=text.replace(i, str(self.Mapper.get(i,i)))
           return text
-     def Detranscribe(self, text:str):
-          pass
+     def ReverseTranscribe(self, text:str):
+          for i in self.Mapper.values():
+               text=text.replace(i, choice([i for i in self.Mapper.keys() if self.Mapper.get(i,i)==i]))
+          return text
+
+# Define Default Transcribers
+
+LatinGreekTranscriber=Transcriber(latinGreek)
+LatinCyrillicTranscriber=Transcriber(latinCyrillic)
+LatinArabicTranscriber=Transcriber(latinArabic)
+LatinHebrewTranscriber=Transcriber(latinHebrew)
+LatinSanskritTranscriber=Transcriber(latinSanskrit)
+LatinTibetanTranscriber=Transcriber(latinTibetan)
+DefaultTranscribers=[LatinGreekTranscriber,LatinCyrillicTranscriber,LatinArabicTranscriber,LatinHebrewTranscriber,LatinSanskritTranscriber,LatinTibetanTranscriber]
+# Mainloop: Interactive Shell
+if __name__=="__main__":
+     print("Welcome to CrazyTranscription!")
+     print("version 0.1, made with love by Shining Yang")
+     while True:
+          mode=''
+          print("Please select a mode:")
+          print("    [1] Transcription")
+          print("    [2] Reverse Transcription")
+          print("    [#] Exit")
+          mode=input("Mode: ")
+          if mode=='1':
+               mode=''
+               modeNames={'1':'Greek','2':'Cyrillic','3':'Arabic','4':'Hebrew','5':'Sanskrit','6':'Tibetan'}
+               while mode!='#':
+                    print("Transcription mode. Please select a target:")
+                    print("    [1] Latin to Greek")
+                    print("    [2] Latin to Cyrillic")
+                    print("    [3] Latin to Arabic")
+                    print("    [4] Latin to Hebrew")
+                    print("    [5] Latin to Sanskrit")
+                    print("    [6] Latin to Tibetan")
+                    print("    [#] Exit")
+                    mode=input("Mode: ")
+                    if mode in ['1','2','3','4','5','6']:
+                         selectedTranscriber=DefaultTranscribers[int(mode)-1]
+                         text=''
+                         print(f'Latin to {modeNames[mode]} mode selected. Type \'#\' to exit.')
+                         while text!='#':
+                             text=input("Input your text to be transcribed:\n")
+                             print(f'---BEGIN {modeNames[mode].upper()} TRANSCRIPTION---')
+                             print(selectedTranscriber.Transcribe(text))
+                             print(f'---END {modeNames[mode].upper()} TRANSCRIPTION---')
+                    elif mode=='#':
+                         pass
+                    else:
+                         print("Invalid mode")
+
+          elif mode=='2':
+               print("Reverse Transcription Mode. Type\'#\' to exit.")
+               text=''
+               while text!='#':
+                    text=input("Input your text to be reverse transcribed:\n")
+                    print("---BEGIN REVERSE TRANSCRIPTION---")
+                    for t in DefaultTranscribers:
+                        text=t.ReverseTranscribe(text)
+                    print(text)
+                    print("---END REVERSE TRANSCRIPTION---")
+          elif mode=='#':
+               break
+          else:
+               print("Invalid Input")
