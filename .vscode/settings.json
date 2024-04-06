@@ -3,5 +3,8 @@
     "python.analysis.typeCheckingMode": "basic",
     "cSpell.words": [
         "SHCH"
-    ]
+    ],
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true
 }
