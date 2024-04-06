@@ -3,6 +3,7 @@ from secrets import choice
 
 # Mapping
 latinGreek = {
+     'TH': 'Θ', 'Th': 'Θ', 'th': 'θ',
      'A': 'Α', 'a': 'α', 
      'B': 'Β', 'b': 'β', 
      'C': 'Ξ', 'c': 'ξ', 
@@ -19,7 +20,7 @@ latinGreek = {
      'N': 'Ν', 'n': 'ν', 
      'O': 'Ο', 'o': 'ο', 
      'P': 'Π', 'p': 'π', 
-     'Q': 'Θ', 'q': 'θ', 
+     'Q': 'Κ', 'q': 'κ', 
      'R': 'Ρ', 'r': 'ρ', 
      'S': 'Σ', 's': 'σ', 
      'T': 'Τ', 't': 'τ', 
@@ -32,6 +33,15 @@ latinGreek = {
 }
 
 latinCyrillic = {
+     'ZH': 'Ж','Zh': 'Ж', 'zh': 'ж',
+     'SH': 'Ш', 'Sh': 'Ш', 'sh': 'ш',
+     'CH': 'Ч', 'Ch': 'Ч', 'ch': 'ч',
+     'TS': 'Ц', 'Ts': 'Ц', 'ts': 'ц',
+     'YU': 'Ю', 'Yu': 'Ю', 'yu': 'ю',
+     'YA': 'Я', 'Ya': 'Я', 'ya': 'я',
+     'KH': 'Х', 'Kh': 'Х', 'kh': 'х',
+     'SHCH': 'Щ', 'Shch': 'Щ', 'shch': 'щ',
+     'Q': 'КУ', 'q': 'ку',
      'A': 'А', 'a': 'а', 
      'B': 'Б', 'b': 'б', 
      'C': 'С', 'c': 'с', 
@@ -48,13 +58,13 @@ latinCyrillic = {
      'N': 'Н', 'n': 'н', 
      'O': 'О', 'o': 'о', 
      'P': 'П', 'p': 'п', 
-     'Q': 'КУ', 'q': 'ку', 
+     # 'Q': 'КУ', 'q': 'ку', 
      'R': 'Р', 'r': 'р', 
      'S': 'С', 's': 'с', 
      'T': 'Т', 't': 'т', 
      'U': 'У', 'u': 'у', 
      'V': 'В', 'v': 'в', 
-     'W': 'Ш', 'w': 'ш', 
+     'W': 'В', 'w': 'в',
      'X': 'Х', 'x': 'х', 
      'Y': 'Ы', 'y': 'ы', 
      'Z': 'З', 'z': 'з'
@@ -90,6 +100,7 @@ latinArabic = {
 }
 
 latinHebrew = {
+     'X': 'קס', 'x': 'קס',
      'A': 'א', 'a': 'א',
      'B': 'ב', 'b': 'ב',
      'C': 'ג', 'c': 'ג', 
@@ -113,7 +124,7 @@ latinHebrew = {
      'U': 'ו', 'u': 'ו',
      'V': 'ו', 'v': 'ו', 
      'W': 'ו', 'w': 'ו',
-     'X': 'קס', 'x': 'קס', 
+     # 'X': 'קס', 'x': 'קס', 
      'Y': 'י', 'y': 'י',
      'Z': 'ז', 'z': 'ז'
 }
@@ -188,7 +199,8 @@ class Transcriber(object):
           return text
      def ReverseTranscribe(self, text:str):
           for i in self.Mapper.values():
-               text=text.replace(i, choice([j for j in self.Mapper.keys() if self.Mapper[j]==i]))
+               while i in text:
+                    text=text.replace(i, choice([j for j in self.Mapper.keys() if self.Mapper[j]==i]),1)
           return text
 
 # Define Default Transcribers
@@ -200,10 +212,13 @@ LatinHebrewTranscriber=Transcriber(latinHebrew)
 LatinSanskritTranscriber=Transcriber(latinSanskrit)
 LatinTibetanTranscriber=Transcriber(latinTibetan)
 DefaultTranscribers=[LatinGreekTranscriber,LatinCyrillicTranscriber,LatinArabicTranscriber,LatinHebrewTranscriber,LatinSanskritTranscriber,LatinTibetanTranscriber]
+
 # Mainloop: Interactive Shell
+
 if __name__=="__main__":
      print("Welcome to CrazyTranscription!")
-     print("version 0.1, made with love by Shining Yang")
+     print("Version 0.1, made with love by Shining Yang")
+     print("Visit https://github.com/ShiningYangYXN/CrazyTranscription for project updates.")
      while True:
           mode=''
           print("Please select a mode:")
@@ -236,7 +251,7 @@ if __name__=="__main__":
                     elif mode=='#':
                          pass
                     else:
-                         print("Invalid mode")
+                         print("Invalid input. Please try again.")
 
           elif mode=='2':
                print("Reverse Transcription Mode. Type\'#\' to exit.")
@@ -251,4 +266,4 @@ if __name__=="__main__":
           elif mode=='#':
                break
           else:
-               print("Invalid Input")
+               print("Invalid input. Please try again.")
