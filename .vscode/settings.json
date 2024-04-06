@@ -2,7 +2,9 @@
     "python.analysis.autoImportCompletions": true,
     "python.analysis.typeCheckingMode": "basic",
     "cSpell.words": [
-        "SHCH"
+        "SHCH",
+        "Ηελλο",
+        "Ωορλδ"
     ],
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
