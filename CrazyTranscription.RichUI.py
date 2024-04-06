@@ -2,8 +2,6 @@
 
 # Dependencies
 
-from math import e
-from turtle import st
 from CrazyTranscription import *
 from rich.console import Console
 from rich.markup import escape
