@@ -9,5 +9,8 @@
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
-    "gitdoc.enabled": true
+    "gitdoc.enabled": true,
+    "docwriter.style": "Google",
+    "docwriter.progress.trackClasses": true,
+    "docwriter.progress.trackTypes": true
 }
