@@ -473,9 +473,9 @@ latinTibetan = {
 
 # Define Default Transcribers
 
-LatinGreekTranscriber = Transcriber(latinGreek)
-LatinCyrillicTranscriber = Transcriber(latinCyrillic)
-LatinArabicTranscriber = Transcriber(latinArabic)
+LatinGreekTranscriber = Transcriber(latinGreek,'Latin to Greek Transcriber')
+LatinCyrillicTranscriber = Transcriber(latinCyrillic,'Latin to Cyrillic Transcriber')
+LatinArabicTranscriber = Transcriber(latinArabic,'Latin to Cyrillic Transcriber')
 LatinHebrewTranscriber = Transcriber(latinHebrew)
 LatinSanskritTranscriber = Transcriber(latinSanskrit)
 LatinTibetanTranscriber = Transcriber(latinTibetan)
