@@ -12,16 +12,11 @@ class Transcriber(object):
     Mapper = {}
 
     def __init__(self, mapper: Dict[str, str]):
-        """
-        The function initializes an object with a dictionary mapping strings to strings.
-
-        Args:
-          mapper (Dict[str, str]): The `__init__` method you provided takes a parameter named `mapper`
-        of type `Dict[str, str]`. This parameter is expected to be a dictionary where both keys and
-        values are strings. The `self.Mapper` attribute is then assigned the value of this `mapper`
-        parameter.
-        """
         self.Mapper = mapper
+        if mapper == {}:
+            raise DeprecationWarning(
+                "It makes no sense to create an empty Transcriber."
+            )
 
     def Transcribe(self, text: str) -> str:
         """
