@@ -8,9 +8,9 @@ from typing import List, Dict
 # Class Definition
 
 
-class Tfrom typing import Dict
+class Transcriber(object):
+    Mapper = {}
 
-class Transcriber:
     def __init__(self, mapper: Dict[str, str]):
         """
         The function initializes a Transcriber object with a mapper dictionary.
@@ -20,35 +20,6 @@ class Transcriber:
         Args:
           mapper (Dict[str, str]): A dictionary where both keys and values are strings.
             This dictionary is assigned to the `mapper` attribute of the class instance.
-        """
-        if not mapper:  # Improved check for an empty dictionary
-            raise DeprecationWarning(
-                "It makes no sense to create an empty Transcriber."
-            )
-        
-        # Updated attribute name to follow naming conventions
-        self.mapper = mapper  # Lowercased attribute name
-
-# Example usage
-if __name__ == "__main__":
-    # This example creates a Transcriber instance with a non-empty mapper
-    transcriber = Transcriber({"a": "A", "b": "B"})
-    print(transcriber.mapper)
-    
-    # The following line would raise a DeprecationWarning if uncommented
-    # transcriber_empty = Transcriber({})ranscriber(object):
-    Mapper = {}
-
-    def __init__(self, mapper: Dict[str, str]):
-        """
-        The function initializes a Transcriber object with a mapper dictionary and raises a
-        DeprecationWarning if the mapper is empty.
-
-        Args:
-          mapper (Dict[str, str]): The `mapper` parameter in the `__init__` method is expected to be a
-        dictionary where the keys and values are both strings. This dictionary is assigned to the
-        `Mapper` attribute of the class instance. If the `mapper` dictionary is empty, a
-        `DeprecationWarning` is raised.
         """
         self.Mapper = mapper
         if not mapper:
