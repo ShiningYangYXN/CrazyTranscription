@@ -82,7 +82,7 @@ class Transcriber(object):
 class TranscriberUI(object):
     TranscriberList = []
 
-    banner = defaultBanner
+    Banner = ""
 
     class UIStyle(Enum):
         Auto = auto()
@@ -90,7 +90,10 @@ class TranscriberUI(object):
         Rich = auto()
 
     def __init__(
-        self, transcriberList: List[Transcriber], style: UIStyle = UIStyle.Auto
+        self,
+        transcriberList: List[Transcriber],
+        style: UIStyle = UIStyle.Auto,
+        banner: str = defaultBanner,
     ):
         self.TranscriberList = transcriberList
 
