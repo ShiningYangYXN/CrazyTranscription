@@ -10,6 +10,14 @@ class Transcriber(object):
     Mapper = {}
 
     def __init__(self, mapper: dict):
+        """
+        The function initializes an object with a dictionary mapper attribute.
+
+        :param mapper: The `__init__` method you provided is a constructor for a class that takes a
+        dictionary `mapper` as a parameter. The `mapper` parameter is expected to be a dictionary that
+        will be assigned to the `Mapper` attribute of the class instance
+        :type mapper: dict
+        """
         self.Mapper = mapper
 
     def Transcribe(self, text: str):
