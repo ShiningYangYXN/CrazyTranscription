@@ -13,14 +13,14 @@ class Transcriber(object):
 
     def __init__(self, mapper: Dict[str, str]):
         """
-        This Python function initializes an object with a dictionary mapper as an attribute.
+        The function initializes an object with a dictionary mapping strings to strings.
 
         Args:
-          mapper (dict): The `mapper` parameter in the `__init__` method is a dictionary that is passed
-        to the class constructor. This dictionary is assigned to the instance variable `Mapper` within
-        the class.
+          mapper (Dict[str, str]): The `__init__` method you provided takes a parameter named `mapper`
+        of type `Dict[str, str]`. This parameter is expected to be a dictionary where both keys and
+        values are strings. The `self.Mapper` attribute is then assigned the value of this `mapper`
+        parameter.
         """
-
         self.Mapper = mapper
 
     def Transcribe(self, text: str) -> str:
@@ -28,7 +28,7 @@ class Transcriber(object):
             text = text.replace(i, str(self.Mapper.get(i, i)))
         return text
 
-    def ReverseTranscribe(self, text: str):
+    def ReverseTranscribe(self, text: str) -> str:
         for i in self.Mapper.values():
             while i in text:
                 text = text.replace(
