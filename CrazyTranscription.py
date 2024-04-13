@@ -3,7 +3,7 @@
 # Dependencies
 
 from secrets import choice
-from typing import *
+from typing import Dict
 
 # Class Definition
 
@@ -23,7 +23,7 @@ class Transcriber(object):
 
         self.Mapper = mapper
 
-    def Transcribe(self, text: str):
+    def Transcribe(self, text: str) -> str:
         for i in self.Mapper:
             text = text.replace(i, str(self.Mapper.get(i, i)))
         return text
