@@ -18,8 +18,23 @@ Visit https://github.com/ShiningYangYXN/CrazyTranscription for project updates.
 
 class Transcriber(object):
     Mapper = {}
+    Description = ""
 
-    def __init__(self, mapper: Dict[str, str]):
+    def __init__(self, mapper: Dict[str, str], description:str=""):
+        """
+        The function initializes a Transcriber object with a mapper dictionary and raises a
+        DeprecationWarning if the mapper is empty.
+        
+        Args:
+          mapper (Dict[str, str]): The `mapper` parameter in the `__init__` method is a dictionary where
+        both keys and values are strings. This dictionary is assigned to the `Mapper` attribute of the
+        class instance. If the `mapper` dictionary is empty, a `DeprecationWarning` is raised to
+        indicate that
+          description: The `description` parameter in the `__init__` method of the Transcriber class is
+        a string that provides additional information or a description for the Transcriber object being
+        initialized. It is an optional parameter with a default value of an empty string. This parameter
+        allows users to provide a description
+        """
         """
         The function initializes a Transcriber object with a mapper dictionary.
         If the mapper is empty, a DeprecationWarning is raised indicating that
@@ -30,6 +45,7 @@ class Transcriber(object):
             This dictionary is assigned to the `mapper` attribute of the class instance.
         """
         self.Mapper = mapper
+        self.Description = description
         if not mapper:
             raise DeprecationWarning(
                 "It makes no sense to create an empty Transcriber."
