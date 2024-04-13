@@ -3,7 +3,7 @@
 # Dependencies
 
 from secrets import choice
-from typing import Dict
+from typing import List, Dict
 
 # Class Definition
 
@@ -11,7 +11,7 @@ from typing import Dict
 class Transcriber(object):
     Mapper = {}
 
-    def __init__(self, mapper: Dict[str, str]):
+    def __init__(self, mapper: Dict[str, str]) -> None:
         """
         The function initializes a Transcriber object with a mapper dictionary and raises a
         DeprecationWarning if the mapper is empty.
@@ -70,6 +70,13 @@ class Transcriber(object):
                     i, choice([j for j in self.Mapper.keys() if self.Mapper[j] == i]), 1
                 )
         return text
+
+
+class TranscriberUI(object):
+    TranscriberList = []
+
+    def __init__(self, transcriberList: List[Transcriber], style="auto") -> None:
+        self.TranscriberList = transcriberList
 
 
 # Mapping
