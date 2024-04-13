@@ -5,7 +5,7 @@
 from rich.console import Console
 from rich.markup import escape
 
-from .CrazyTranscription import *
+from CrazyTranscription import *
 
 # Define the console
 
