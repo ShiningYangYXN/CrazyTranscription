@@ -4,6 +4,14 @@
 
 from secrets import choice
 from typing import List, Dict
+from enum import Enum, auto
+
+# Banner
+defaultBanner = """
+Welcome to CrazyTranscription!
+Version 2.2.1.2 (Arctic Wolf), made with love by Shining Yang
+Visit https://github.com/ShiningYangYXN/CrazyTranscription for project updates.
+"""
 
 # Class Definition
 
@@ -74,7 +82,16 @@ class Transcriber(object):
 class TranscriberUI(object):
     TranscriberList = []
 
-    def __init__(self, transcriberList: List[Transcriber], style="auto"):
+    banner = defaultBanner
+
+    class UIStyle(Enum):
+        Auto = auto()
+        Classic = auto()
+        Rich = auto()
+
+    def __init__(
+        self, transcriberList: List[Transcriber], style: UIStyle = UIStyle.Auto
+    ):
         self.TranscriberList = transcriberList
 
 
