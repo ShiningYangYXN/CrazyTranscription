@@ -107,6 +107,9 @@ class TranscriberUI(object):
     ):
         self.TranscriberList = transcriberList
         self.Style = style
+        if style == TranscriberUI.UIStyle.Auto:
+            try:
+                
         self.Banner = banner
 
 
@@ -473,12 +476,12 @@ latinTibetan = {
 
 # Define Default Transcribers
 
-LatinGreekTranscriber = Transcriber(latinGreek,'Latin to Greek Transcriber')
-LatinCyrillicTranscriber = Transcriber(latinCyrillic,'Latin to Cyrillic Transcriber')
-LatinArabicTranscriber = Transcriber(latinArabic,'Latin to Cyrillic Transcriber')
-LatinHebrewTranscriber = Transcriber(latinHebrew)
-LatinSanskritTranscriber = Transcriber(latinSanskrit)
-LatinTibetanTranscriber = Transcriber(latinTibetan)
+LatinGreekTranscriber = Transcriber(latinGreek, "Latin to Greek Transcriber")
+LatinCyrillicTranscriber = Transcriber(latinCyrillic, "Latin to Cyrillic Transcriber")
+LatinArabicTranscriber = Transcriber(latinArabic, "Latin to Arabic Transcriber")
+LatinHebrewTranscriber = Transcriber(latinHebrew, "Latin to Hebrew Transcriber")
+LatinSanskritTranscriber = Transcriber(latinSanskrit, "Latin to Sanskrit Transcriber")
+LatinTibetanTranscriber = Transcriber(latinTibetan, "Latin to Tibetan Transcriber")
 DefaultTranscribers = [
     LatinGreekTranscriber,
     LatinCyrillicTranscriber,
