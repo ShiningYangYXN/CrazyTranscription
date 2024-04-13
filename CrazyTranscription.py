@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 
 # Dependencies
+
 from secrets import choice
+from typing import *
 
 # Class Definition
 
@@ -9,7 +11,7 @@ from secrets import choice
 class Transcriber(object):
     Mapper = {}
 
-    def __init__(self, mapper: dict):
+    def __init__(self, mapper: Dict[str, str]):
         """
         This Python function initializes an object with a dictionary mapper as an attribute.
 
