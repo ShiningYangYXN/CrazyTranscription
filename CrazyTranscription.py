@@ -11,7 +11,7 @@ from typing import List, Dict
 class Transcriber(object):
     Mapper = {}
 
-    def __init__(self, mapper: Dict[str, str]) -> None:
+    def __init__(self, mapper: Dict[str, str]):
         """
         The function initializes a Transcriber object with a mapper dictionary and raises a
         DeprecationWarning if the mapper is empty.
@@ -75,11 +75,10 @@ class Transcriber(object):
 class TranscriberUI(object):
     TranscriberList = []
 
-    def __init__(self, transcriberList: List[Transcriber], style="auto") -> None:
+    def __init__(self, transcriberList: List[Transcriber], style="auto"):
         self.TranscriberList = transcriberList
 
 
-Transcriber()
 # Mapping
 latinGreek = {
     "TH": "Θ",
