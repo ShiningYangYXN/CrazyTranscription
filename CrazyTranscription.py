@@ -20,11 +20,11 @@ class Transcriber(object):
     Mapper = {}
     Description = ""
 
-    def __init__(self, mapper: Dict[str, str], description:str=""):
+    def __init__(self, mapper: Dict[str, str], description: str = ""):
         """
         The function initializes a Transcriber object with a mapper dictionary and raises a
         DeprecationWarning if the mapper is empty.
-        
+
         Args:
           mapper (Dict[str, str]): The `mapper` parameter in the `__init__` method is a dictionary where
         both keys and values are strings. This dictionary is assigned to the `Mapper` attribute of the
@@ -35,15 +35,7 @@ class Transcriber(object):
         initialized. It is an optional parameter with a default value of an empty string. This parameter
         allows users to provide a description
         """
-        """
-        The function initializes a Transcriber object with a mapper dictionary.
-        If the mapper is empty, a DeprecationWarning is raised indicating that
-        creating an empty Transcriber doesn't make sense.
 
-        Args:
-          mapper (Dict[str, str]): A dictionary where both keys and values are strings.
-            This dictionary is assigned to the `mapper` attribute of the class instance.
-        """
         self.Mapper = mapper
         self.Description = description
         if not mapper:
@@ -105,6 +97,8 @@ class TranscriberUI(object):
         Classic = auto()
         Rich = auto()
 
+    Style = UIStyle.Auto
+
     def __init__(
         self,
         transcriberList: List[Transcriber],
@@ -112,6 +106,8 @@ class TranscriberUI(object):
         banner: str = defaultBanner,
     ):
         self.TranscriberList = transcriberList
+        self.Style = style
+        self.Banner = banner
 
 
 # Mapping
