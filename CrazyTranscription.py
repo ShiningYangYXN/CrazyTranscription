@@ -79,6 +79,7 @@ class TranscriberUI(object):
         self.TranscriberList = transcriberList
 
 
+Transcriber()
 # Mapping
 latinGreek = {
     "TH": "Θ",
