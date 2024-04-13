@@ -107,10 +107,26 @@ class TranscriberUI(object):
     ):
         self.TranscriberList = transcriberList
         self.Style = style
-        if style == TranscriberUI.UIStyle.Auto:
+        if style == TranscriberUI.UIStyle.Auto or style == TranscriberUI.UIStyle.Rich:
             try:
-                
+                from rich.console import Console
+                from rich.markup import escape
+
+                self.Style = TranscriberUI.UIStyle.Rich
+            except ImportError:
+                if style == TranscriberUI.UIStyle.Rich:
+                    raise RuntimeError(
+                        "Rich is not installed. Please install it with 'pip install rich'."
+                    )
+                else:
+                    self.Style = TranscriberUI.UIStyle.Classic
         self.Banner = banner
+
+    def Run(self):
+        if self.Style == TranscriberUI.UIStyle.Rich:
+            pass  # Not implemented
+        else:
+            pass  # Not implemented
 
 
 # Mapping
