@@ -12,6 +12,16 @@ class Transcriber(object):
     Mapper = {}
 
     def __init__(self, mapper: Dict[str, str]):
+        """
+        The function initializes a Transcriber object with a mapper dictionary and raises a
+        DeprecationWarning if the mapper is empty.
+
+        Args:
+          mapper (Dict[str, str]): The `mapper` parameter in the `__init__` method is expected to be a
+        dictionary where the keys and values are both strings. This dictionary is assigned to the
+        `Mapper` attribute of the class instance. If the `mapper` dictionary is empty, a
+        `DeprecationWarning` is raised.
+        """
         self.Mapper = mapper
         if mapper == {}:
             raise DeprecationWarning(
