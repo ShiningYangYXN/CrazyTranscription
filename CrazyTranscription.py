@@ -24,11 +24,41 @@ class Transcriber(object):
         self.Mapper = mapper
 
     def Transcribe(self, text: str) -> str:
+        """
+        The `Transcribe` function takes a text input and replaces characters based on a mapping
+        dictionary provided in `self.Mapper`.
+
+        Args:
+          text (str): The `Transcribe` method takes a `text` parameter as input, which is expected to be
+        a string. The method then iterates over the keys in the `Mapper` dictionary (which is an
+        attribute of the class instance) and replaces occurrences of those keys in the input `text` with
+
+        Returns:
+          The `Transcribe` method returns the text after replacing characters based on the mapping
+        defined in `self.Mapper`.
+        """
         for i in self.Mapper:
             text = text.replace(i, str(self.Mapper.get(i, i)))
         return text
 
     def ReverseTranscribe(self, text: str) -> str:
+        """
+        The function `ReverseTranscribe` takes a text string and replaces each occurrence of a value in
+        a dictionary with its corresponding key, returning the modified text.
+
+        Args:
+          text (str): The `ReverseTranscribe` function takes a string `text` as input and performs a
+        reverse transcription based on a mapping defined in `self.Mapper`. The function iterates over
+        the values in the `Mapper` dictionary and replaces occurrences of those values in the input
+        `text` with a randomly chosen key
+
+        Returns:
+          The `ReverseTranscribe` method is returning the reverse-transcribed version of the input
+        `text` string. The method iterates over the values in the `Mapper` dictionary, and for each
+        value found in the `text` string, it replaces it with a randomly chosen key from the `Mapper`
+        dictionary that corresponds to that value. This process is repeated until all values in the
+        `text`
+        """
         for i in self.Mapper.values():
             while i in text:
                 text = text.replace(
